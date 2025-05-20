@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS Configuration
 app.use(cors({
-  origin: '*',  // ✅ Removed trailing slash
+  origin: process.env.CLIENT_URL, 
   credentials: true,
 }));
 
