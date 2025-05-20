@@ -1,32 +1,35 @@
-const express=require('express');
-const app=express();
-
-const db=require("./config/database.js");
-const cookieParser=require('cookie-parser');
-const bodyParser=require('body-parser');
-const cors= require('cors');
-const blogRoutes=require("./routes/blogRoutes.js");
-const userRoutes=require("./routes/userRoutes.js");
-
+const express = require('express');
+const app = express();
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config();
-const PORT=process.env.PORT || 4000;
 
+const db = require("./config/database.js");
+const blogRoutes = require("./routes/blogRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
+
+const PORT = process.env.PORT || 4000;
+
+// Connect to the database
 db.dbConnect();
 
+// Middlewares
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// CORS Configuration
 app.use(cors({
-  origin: 'https://blog-application-roan-three.vercel.app',   // ← your front-end URL
-  credentials: true,                 // ← enable Access-Control-Allow-Credentials
+  origin: 'https://blog-application-roan-three.vercel.app',  // ✅ Removed trailing slash
+  credentials: true,
 }));
 
-app.use("/api/blogs",blogRoutes);
-app.use("/api/users",userRoutes);
+// Routes
+app.use("/api/blogs", blogRoutes);
+app.use("/api/users", userRoutes);
 
-app.listen(PORT,()=>{
-    console.log(`Server Started SuccessFully at PORT ${PORT}`);
-})
-
+// Root Route
 app.get('/', (req, res) => {
   const title = "This is Backend Server of Blog Application website";
   res.send(`
@@ -43,3 +46,7 @@ app.get('/', (req, res) => {
   `);
 });
 
+// Start the Server
+app.listen(PORT, () => {
+  console.log(`✅ Server Started Successfully at PORT ${PORT}`);
+});
