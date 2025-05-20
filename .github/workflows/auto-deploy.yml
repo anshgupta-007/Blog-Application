@@ -1,0 +1,13 @@
+name: Auto Deploy to Render
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Every hour (UTC)
+
+jobs:
+  trigger-render-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Render Deploy Hook
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_URL }}"
