@@ -16,7 +16,7 @@ db.dbConnect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://localhost:5173',   // ← your front-end URL
+  origin: 'https://blog-application-roan-three.vercel.app/',   // ← your front-end URL
   credentials: true,                 // ← enable Access-Control-Allow-Credentials
 }));
 
