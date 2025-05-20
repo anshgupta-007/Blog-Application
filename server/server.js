@@ -1,12 +1,12 @@
 const express=require('express');
 const app=express();
 
-const db=require("./config/database.jsx");
+const db=require("./config/database.js");
 const cookieParser=require('cookie-parser');
 const bodyParser=require('body-parser');
 const cors= require('cors');
-const blogRoutes=require("./routes/blogRoutes.jsx");
-const userRoutes=require("./routes/userRoutes.jsx");
+const blogRoutes=require("./routes/blogRoutes.js");
+const userRoutes=require("./routes/userRoutes.js");
 
 require('dotenv').config();
 const PORT=process.env.PORT || 4000;
