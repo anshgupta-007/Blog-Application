@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS Configuration
 app.use(cors({
-  origin: 'https://blog-application-roan-three.vercel.app',  // ✅ Removed trailing slash
+  origin: '*',  // ✅ Removed trailing slash
   credentials: true,
 }));
 
