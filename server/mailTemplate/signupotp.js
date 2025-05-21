@@ -23,13 +23,8 @@ const otpTemplate = (otp) => {
 				text-align: center;
 			}
 	
-			.logo {
-				max-width: 200px;
-				margin-bottom: 20px;
-			}
-	
 			.message {
-				font-size: 18px;
+				font-size: 20px;
 				font-weight: bold;
 				margin-bottom: 20px;
 			}
@@ -42,8 +37,8 @@ const otpTemplate = (otp) => {
 			.cta {
 				display: inline-block;
 				padding: 10px 20px;
-				background-color: #FFD60A;
-				color: #000000;
+				background-color: #1e90ff;
+				color: #ffffff;
 				text-decoration: none;
 				border-radius: 5px;
 				font-size: 16px;
@@ -59,6 +54,8 @@ const otpTemplate = (otp) => {
 	
 			.highlight {
 				font-weight: bold;
+				font-size: 24px;
+				color: #1e90ff;
 			}
 		</style>
 	
@@ -66,22 +63,22 @@ const otpTemplate = (otp) => {
 	
 	<body>
 		<div class="container">
-			<a href="https://studynotion-edtech-project.vercel.app"><img class="logo"
-					src="https://i.ibb.co/7Xyj3PC/logo.png" alt="StudyNotion Logo"></a>
-			<div class="message">OTP Verification Email</div>
+			<div class="message">Verify Your Email Address</div>
 			<div class="body">
-				<p>Dear User,</p>
-				<p>Thank you for registering with StudyNotion. To complete your registration, please use the following OTP
-					(One-Time Password) to verify your account:</p>
+				<p>Hello Blogger,</p>
+				<p>Welcome to <strong>BlogHub</strong> — your space to share, explore, and engage with insightful blogs.</p>
+				<p>To activate your account, please enter the OTP provided below:</p>
 				<h2 class="highlight">${otp}</h2>
-				<p>This OTP is valid for 5 minutes. If you did not request this verification, please disregard this email.
-				Once your account is verified, you will have access to our platform and its features.</p>
+				<p>This OTP is valid for the next 5 minutes. If you did not initiate this request, you may safely ignore this message.</p>
 			</div>
-			<div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-					href="mailto:info@studynotion.com">info@studynotion.com</a>. We are here to help!</div>
+			<div class="support">
+				Need help? Reach us at <a href="mailto:support@bloghub.com">support@bloghub.com</a><br>
+				Happy blogging! 🌟
+			</div>
 		</div>
 	</body>
 	
 	</html>`;
 };
+
 module.exports = otpTemplate;
